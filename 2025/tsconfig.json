@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "module": "ES2022",
+    "moduleResolution": "node",
+    "target": "ES2022",
+    "lib": ["ES2022","DOM"],
+    "jsx": "react",
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "downlevelIteration": true
+  },
+  "exclude": ["node_modules", "**/node_modules/*"]
+}
