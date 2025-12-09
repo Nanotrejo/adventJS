@@ -18,7 +18,6 @@ function drawTree(height: number, ornament: string, frequency: number): string {
     lines.push(padding + rowContent);
   }
 
-  // Add trunk
   const trunkPadding = ' '.repeat((maxWidth - 1) / 2);
   lines.push(trunkPadding + '#');
 
