@@ -62,6 +62,7 @@ npm run format
 ### Nuevo CLI: `adventjs-cli`
 
 Existe un CLI útil para trabajar con los retos llamado `adventjs-cli` (si lo tienes instalado). Permite ejecutar un día concreto, iniciar un entorno de desarrollo o ejecutar tests de forma directa.
+
 ```console
 npx adventjs-cli init
 ```
