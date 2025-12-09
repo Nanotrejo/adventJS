@@ -2,19 +2,27 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 exports.manufactureGifts = manufactureGifts;
 function manufactureGifts(giftsToProduce) {
-  var manufacturedGifts = [];
+  // Optimized implementation:
+  // 1) Calcula la cantidad total de juguetes a fabricar
+  // 2) Prealoca el array de resultado con ese tamaño
+  // 3) Rellena el array por índice (evita re-asignaciones dinámicas)
+  var total = giftsToProduce.reduce(function (sum, _a) {
+    var quantity = _a.quantity;
+    return sum + Math.max(0, quantity);
+  }, 0);
+  var manufacturedGifts = new Array(total);
+  var idx = 0;
   for (
     var _i = 0, giftsToProduce_1 = giftsToProduce;
     _i < giftsToProduce_1.length;
     _i++
   ) {
-    var gift = giftsToProduce_1[_i];
-    var toy = gift.toy,
-      quantity = gift.quantity;
-    if (quantity > 0) {
-      for (var i = 0; i < quantity; i++) {
-        manufacturedGifts.push(toy);
-      }
+    var _a = giftsToProduce_1[_i],
+      toy = _a.toy,
+      quantity = _a.quantity;
+    var q = Math.max(0, quantity);
+    for (var i = 0; i < q; i++) {
+      manufacturedGifts[idx++] = toy;
     }
   }
   return manufacturedGifts;

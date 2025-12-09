@@ -3,14 +3,17 @@ export { manufactureGifts };
 function manufactureGifts(
   giftsToProduce: Array<{ toy: string; quantity: number }>
 ): string[] {
-  const manufacturedGifts: string[] = [];
+  const total = giftsToProduce.reduce(
+    (sum, { quantity }) => sum + Math.max(0, quantity),
+    0
+  );
+  const manufacturedGifts: string[] = new Array(total);
+  let idx = 0;
 
-  for (const gift of giftsToProduce) {
-    const { toy, quantity } = gift;
-    if (quantity > 0) {
-      for (let i = 0; i < quantity; i++) {
-        manufacturedGifts.push(toy);
-      }
+  for (const { toy, quantity } of giftsToProduce) {
+    const q = Math.max(0, quantity);
+    for (let i = 0; i < q; i++) {
+      manufacturedGifts[idx++] = toy;
     }
   }
 

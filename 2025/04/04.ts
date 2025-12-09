@@ -12,7 +12,9 @@ function decodeSantaPin(code: string): string | null {
 
     if (op === '<') {
       // digit = pinDigits.at(-1) ?? 0;
-      pinDigits.push(pinDigits.length > 0 ? pinDigits[pinDigits.length - 1] : 0);
+      pinDigits.push(
+        pinDigits.length > 0 ? pinDigits[pinDigits.length - 1] : 0
+      );
     } else {
       if (!digitStr) continue;
       digit = parseInt(digitStr, 10);
@@ -20,7 +22,7 @@ function decodeSantaPin(code: string): string | null {
       if (op && /^[+-]+$/.test(op)) {
         let offset = 0;
         for (const c of op) offset += c === '+' ? 1 : -1;
-        digit = ((digit + offset) % 10 + 10) % 10;
+        digit = (((digit + offset) % 10) + 10) % 10;
       }
     }
 
@@ -30,12 +32,11 @@ function decodeSantaPin(code: string): string | null {
   return pinDigits.length < 4 ? null : pinDigits.slice(0, 4).join('');
 }
 
-
-console.log(decodeSantaPin('[1++][2-][3+][<]'))
+console.log(decodeSantaPin('[1++][2-][3+][<]'));
 // "3144"
 
-decodeSantaPin('[9+][0-][4][<]')
+decodeSantaPin('[9+][0-][4][<]');
 // "0944"
 
-decodeSantaPin('[1+][2-]')
+decodeSantaPin('[1+][2-]');
 // null (only 2 digits)

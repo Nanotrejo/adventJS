@@ -5,7 +5,7 @@ describe('Challenge Day 4', () => {
     expect(decodeSantaPin('[1++][2-][3+][<]')).toBe('3144');
     expect(decodeSantaPin('[9+][0-][4][<]')).toBe('0944');
     expect(decodeSantaPin('[1+][2-]')).toBeNull();
-    expect(decodeSantaPin('[1+++++++++][2--][3----][<]')).toBe('0099')
+    expect(decodeSantaPin('[1+++++++++][2--][3----][<]')).toBe('0099');
   });
 
   it('should return null for less than 3 digits', () => {

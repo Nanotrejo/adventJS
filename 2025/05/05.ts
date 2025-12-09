@@ -1,7 +1,7 @@
 export { timeUntilTakeOff };
 
 type ElfDateTime =
-  `${number}*${number}*${number}@${number}|${number}|${number} NP`
+  `${number}*${number}*${number}@${number}|${number}|${number} NP`;
 
 function timeUntilTakeOff(
   fromTime: ElfDateTime,
@@ -32,13 +32,13 @@ function timeUntilTakeOff(
 const takeoff = '2025*12*25@00|00|00 NP';
 
 // from December 24, 2025, 23:59:30, 30 seconds before takeoff
-timeUntilTakeOff('2025*12*24@23|59|30 NP', takeoff)
+timeUntilTakeOff('2025*12*24@23|59|30 NP', takeoff);
 // 30
 
 // exactly at takeoff time
-timeUntilTakeOff('2025*12*25@00|00|00 NP', takeoff)
+timeUntilTakeOff('2025*12*25@00|00|00 NP', takeoff);
 // 0
 
 // 12 seconds after takeoff
-timeUntilTakeOff('2025*12*25@00|00|12 NP', takeoff)
+timeUntilTakeOff('2025*12*25@00|00|12 NP', takeoff);
 // -12
